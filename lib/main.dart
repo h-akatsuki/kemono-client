@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:kemono_client/kemono/login.dart';
 import 'package:kemono_client/page/router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,7 +8,6 @@ late SharedPreferences prefs;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   prefs = await SharedPreferences.getInstance();
-  LoginCokkie.remove();
   runApp(const ProviderScope(child: Kemono()));
 }
 

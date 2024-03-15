@@ -49,8 +49,8 @@ class LoginCokkie {
 
   LoginCokkie(this.value);
 
-  void save() {
-    prefs.setString(cokieKey, jsonEncode(value));
+  void save() async {
+    await prefs.setString(cokieKey, jsonEncode(value));
   }
 
   static LoginCokkie? load() {

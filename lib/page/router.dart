@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:kemono_client/artist/search.dart';
 import 'package:kemono_client/kemono/login.dart';
 import 'package:kemono_client/page/home.dart';
 import 'package:kemono_client/page/login.dart';
@@ -11,7 +12,6 @@ part 'router.g.dart';
 class Cokkie extends _$Cokkie {
   @override
   LoginCokkie? build() {
-    print(Account.load()?.toJson());
     return LoginCokkie.load();
   }
 
@@ -30,7 +30,8 @@ class RouterInner extends ConsumerWidget {
     return Navigator(
       key: navigatorKey,
       pages: [
-        if (cokkie != null) HomePage.page(),
+        HomePage.page(),
+        ArtistSearch.page(ArtistSearchState.initial),
         if (cokkie == null) LoginPage.page(),
       ],
       onPopPage: (route, result) {
